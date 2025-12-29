@@ -1,2 +1,4 @@
-"node_modules"
-".env"
+# Igonre these files
+
+node_modules/
+.env
