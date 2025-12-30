@@ -27,7 +27,9 @@ router.post("/login");
 router.get("/check-email");
 
 // Get the authenticated user's profile
-router.get("/getUser");
+router.get("/getUser", (req, res) => {
+  res.send({ success: true, message: "This route is working" });
+});
 
 // Logout the authenticated user
 router.post("/logout");

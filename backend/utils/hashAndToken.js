@@ -1,10 +1,19 @@
 // ==================== Hash Utilities ====================
-// Bcrypt for password hashing
 const bcrypt = require("bcrypt");
+const crypto = require("crypto");
 
 const bcryptHash = async (value) => {
   const hashedBcrypt = await bcrypt.hash(value, 12);
   return hashedBcrypt;
+};
+
+const cryptoHash = (value) => {
+  const hashedCrypto = crypto
+    .createHash("sha3-256")
+    .update(value)
+    .digest("hex");
+
+  return hashedCrypto;
 };
 
 // ==================== Token Utilities ====================
@@ -20,3 +29,4 @@ const generateToken = (userId) => {
   });
 };
 
+module.exports = { bcryptHash, cryptoHash, generateToken };
