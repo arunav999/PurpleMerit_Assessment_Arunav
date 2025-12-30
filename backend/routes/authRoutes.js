@@ -16,6 +16,7 @@ const validateUser = require("../validators/loginUserValidator.js");
 // Controller functions for each auth endpoint
 const registerUser = require("../controllers/registerController.js");
 const loginUser = require("../controllers/loginController.js");
+const logoutUser = require("../controllers/logoutController.js");
 
 // Create a new router instance
 const router = Router();
@@ -34,6 +35,6 @@ router.post("/login", validateUser, loginUser);
 // router.get("/getUser");
 
 // Logout the authenticated user
-// router.post("/logout");
+router.post("/logout", logoutUser);
 
 module.exports = router;
