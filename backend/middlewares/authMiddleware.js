@@ -10,7 +10,7 @@ const ApiError = require("../errors/ApiError.js");
 
 // Status code enums
 const { STATUS_CODES } = require("../constants/statusCodes.js");
-const { ROLES, USER_STATUS } = require("../constants/enums.js");
+const { USER_STATUS } = require("../constants/enums.js");
 
 // User Model
 const User = require("../models/User.js");
@@ -62,7 +62,7 @@ exports.isAuthenticated = async (req, res, next) => {
       );
     }
 
-    // Attach user and chec status
+    // Attach user and check status
     const user = await User.findById(decoded.id).select("-password");
 
     if (!user) {
