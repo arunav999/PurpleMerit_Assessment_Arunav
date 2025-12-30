@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const REGX = require("../constants/regx.js");
+const {REGX} = require("../constants/regx.js");
 const { ROLES, USER_STATUS } = require("../constants/enums.js");
 
 const userSchema = new mongoose.Schema(

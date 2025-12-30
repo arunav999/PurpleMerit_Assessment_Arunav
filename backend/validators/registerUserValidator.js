@@ -11,16 +11,12 @@ const { REGX } = require("../constants/regx.js");
 // Middleware to validate register user input
 const registerUserValidator = (req, res, next) => {
   // Extract registration fields from request body
-  const { fullName, email, password, confirmPassword } = req.body;
+  const { fullName, email, password, confirmPassword } = req.body || {};
 
   // Presence check: first name
   if (!fullName)
     return next(
-      new ApiError(
-        STATUS_CODES.BAD_REQUEST,
-        "Full Name name is required",
-        "fullName"
-      )
+      new ApiError(STATUS_CODES.BAD_REQUEST, "Name is required", "fullName")
     );
 
   // Presence check: email
