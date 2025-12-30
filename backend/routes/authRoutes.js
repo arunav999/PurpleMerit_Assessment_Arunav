@@ -28,12 +28,6 @@ router.post("/register", validateNewUser, registerUser);
 // Login an existing user
 router.post("/login", validateUser, loginUser);
 
-// Check if a user email-exists
-// router.get("/check-email");
-
-// Get the authenticated user's profile
-// router.get("/getUser");
-
 // Logout the authenticated user
 router.post("/logout", logoutUser);
 
