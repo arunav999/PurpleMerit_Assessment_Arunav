@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const REGX = require("../constants/regx.js");
+const { ROLES, USER_STATUS } = require("../constants/enums.js");
 
 const userSchema = new mongoose.Schema(
   {
@@ -24,13 +25,13 @@ const userSchema = new mongoose.Schema(
     },
     role: {
       type: String,
-      enum: ["user", "admin"],
-      default: "user",
+      enum: Object.values(ROLES),
+      default: ROLES.USER,
     },
     status: {
       type: String,
-      enum: ["active", "inactive"],
-      default: "active",
+      enum: Object.values(USER_STATUS),
+      default: USER_STATUS.ACTIVE,
     },
     lastLogin: {
       type: Date,
