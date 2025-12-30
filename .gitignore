@@ -1,4 +1,20 @@
-# Ignore these files
-
+# Dependencies
 node_modules/
+package-lock.json
+
+# Environment Variables (CRITICAL: Do not upload these!)
 .env
+backend/.env
+frontend/.env
+
+# Build Outputs
+dist/
+build/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS Files
+.DS_Store
