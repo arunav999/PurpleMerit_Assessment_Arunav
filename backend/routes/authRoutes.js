@@ -6,6 +6,7 @@ const { Router } = require("express");
 // Protect routes with authentication middleware
 
 // Rate limiter middleware to prevent abuse
+const { loginLimiter } = require("../middlewares/rateLimiter.js");
 
 // ==================== Validators ====================
 // Validate registration and login requests
@@ -26,7 +27,7 @@ const router = Router();
 router.post("/register", validateNewUser, registerUser);
 
 // Login an existing user
-router.post("/login", validateUser, loginUser);
+router.post("/login", loginLimiter, validateUser, loginUser);
 
 // Logout the authenticated user
 router.post("/logout", logoutUser);
