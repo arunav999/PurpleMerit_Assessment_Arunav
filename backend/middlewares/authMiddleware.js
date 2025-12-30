@@ -85,3 +85,18 @@ exports.isAuthenticated = async (req, res, next) => {
     next(error);
   }
 };
+
+// Implementing RBAC
+exports.isAuthorized = (...allowedRoles) => {
+  return (req, res, next) => {
+    if (!allowedRoles.includes(req.user.role)) {
+      return next(
+        new ApiError(
+          STATUS_CODES.FORBIDDEN,
+          `Access Denied. Role '${req.user.role}' is not authorized`
+        )
+      );
+    }
+    next();
+  };
+};
