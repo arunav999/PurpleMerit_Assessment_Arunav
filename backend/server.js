@@ -17,6 +17,7 @@ const purpleMeritDB = require("./config/db.js");
 
 // ==================== Error Handler ====================
 // Centralized error handling middleware
+const errorHandler = require("./errors/errorHandler.js");
 
 // ==================== Express App Setup ====================
 const app = express();
@@ -62,6 +63,7 @@ const baseRoute = "/api/v1";
 
 // ==================== Error Middleware ====================
 // Handle errors from all routes and controllers
+app.use(errorHandler);
 
 // ==================== Start Server ====================
 // Start listening for incoming requests
