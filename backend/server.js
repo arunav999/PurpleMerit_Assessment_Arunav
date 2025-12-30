@@ -14,6 +14,7 @@ const { connectReddis } = require("./config/redisClientDB.js");
 
 // ==================== Import Routes ====================
 // Modular route imports for different features
+const authRoutes = require("./routes/authRoutes.js");
 
 // ==================== Error Handler ====================
 // Centralized error handling middleware
@@ -61,6 +62,8 @@ app.use(cookieParser());
 // Mount feature routes under /api/v1
 
 const baseRoute = "/api/v1";
+
+app.use(`${baseRoute}/auth`, authRoutes); // Auth routes
 
 // ==================== Error Middleware ====================
 // Handle errors from all routes and controllers
