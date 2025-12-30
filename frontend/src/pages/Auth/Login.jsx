@@ -4,9 +4,11 @@ import { useAuth } from "../../context/AuthContext";
 import axiosClient from "../../services/axiosClient";
 import { API_PATHS } from "../../services/apiPaths";
 import { toast } from "react-toastify";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 export default function Login() {
   const [formData, setFormData] = useState({ email: "", password: "" });
+  const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const { login } = useAuth();
   const navigate = useNavigate();
@@ -58,19 +60,28 @@ export default function Login() {
                 onChange={handleChange}
               />
             </div>
-            <div>
+
+            <div className="relative">
               <label className="block text-sm font-medium text-gray-700">
                 Password
               </label>
               <input
                 name="password"
-                type="password"
+                type={showPassword ? "text" : "password"}
                 required
-                className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm pr-10"
                 placeholder="••••••••"
                 value={formData.password}
                 onChange={handleChange}
               />
+              {/* Eye Button */}
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute inset-y-0 right-0 top-6 flex items-center pr-3 text-gray-400 hover:text-gray-600"
+              >
+                {showPassword ? <FaEyeSlash /> : <FaEye />}
+              </button>
             </div>
           </div>
 
@@ -79,11 +90,7 @@ export default function Login() {
             disabled={loading}
             className="group relative flex w-full justify-center rounded-md bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:opacity-70"
           >
-            {loading ? (
-              <span className="animate-pulse">Signing in...</span>
-            ) : (
-              "Sign in"
-            )}
+            {loading ? "Signing in..." : "Sign in"}
           </button>
         </form>
 
