@@ -14,8 +14,8 @@ const validateUser = require("../validators/loginUserValidator.js");
 
 // ==================== Controllers ====================
 // Controller functions for each auth endpoint
-const { registerUser } = require("../controllers/registerController.js");
-const { loginUser } = require("../controllers/loginController.js");
+const registerUser = require("../controllers/registerController.js");
+const loginUser = require("../controllers/loginController.js");
 
 // Create a new router instance
 const router = Router();
