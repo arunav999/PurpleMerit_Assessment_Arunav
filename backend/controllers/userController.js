@@ -17,7 +17,7 @@ exports.getMe = async (req, res, next) => {
 };
 
 // Get all users (Admin function) - with pagination
-exports.getAllUser = async (req, res, next) => {
+exports.getAllUsers = async (req, res, next) => {
   try {
     const page = parseInt(req.query.page) || 1;
     const limit = parseInt(req.query.limit) || 10;
