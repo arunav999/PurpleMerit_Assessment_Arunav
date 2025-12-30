@@ -20,6 +20,7 @@ export const API_PATHS = {
   },
   USERS: {
     GET_ALL_USERS: `${API_USERS}`,
+    GET_ME: `${API_USERS}/me`,
     UPDATE_USER_STATUS_BY_ID: (id) => `${API_USERS}/${id}/status`,
   },
 };
