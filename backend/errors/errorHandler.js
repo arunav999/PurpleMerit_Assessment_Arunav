@@ -1,7 +1,7 @@
 const STATUS_CODES = require("../constants/statusCodes.js");
 
 const errorHandler = (err, req, res, next) => {
-  const status = err.status || STATUS_CODES.SERVER_ERROR;
+  const status = err.statusCode || STATUS_CODES.SERVER_ERROR;
 
   const errorResponse = {
     success: false,

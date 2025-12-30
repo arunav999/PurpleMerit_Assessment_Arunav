@@ -38,12 +38,6 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-// ==================== Global Middlewares ====================
-app.use(helmet());
-app.use(morgan("dev"));
-app.use(express.json());
-app.use(cookieParser());
-
 // ==================== CORS Middleware ====================
 // Allow cross-origin requests from client
 app.use(
@@ -55,6 +49,12 @@ app.use(
 
 // ==================== Connect to Database ====================
 purpleMeritDB(); // Mongo
+
+// ==================== Global Middlewares ====================
+app.use(helmet());
+app.use(morgan("dev"));
+app.use(express.json());
+app.use(cookieParser());
 
 // ==================== API Routes ====================
 // Mount feature routes under /api/v1
