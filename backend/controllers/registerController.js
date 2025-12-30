@@ -25,3 +25,10 @@ const {
 const { cookieOptions } = require("../utils/utils.js");
 
 // Main registration controller
+const registerUser = async (req, res, next) => {
+  try {
+    const {fullName, email, password} = req.body;
+  } catch (error) {}
+};
+
+module.exports = registerUser;
