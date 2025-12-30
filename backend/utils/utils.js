@@ -1,5 +1,5 @@
 // Cookie options
-export const cookieOptions = (maxAge) => {
+const cookieOptions = (maxAge) => {
   const checkData =
     maxAge !== undefined && maxAge !== null && maxAge.trim() !== "";
 
@@ -43,3 +43,5 @@ export const cookieOptions = (maxAge) => {
     path: "/",
   };
 };
+
+module.exports = { cookieOptions };

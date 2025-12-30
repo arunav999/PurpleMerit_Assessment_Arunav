@@ -7,7 +7,6 @@ const ApiError = require("../errors/ApiError.js");
 // Status code constants, roles, and regex
 const { STATUS_CODES } = require("../constants/statusCodes.js");
 const { REGX } = require("../constants/regx.js");
-const { ROLES } = require("../constants/enums.js");
 
 // Middleware to validate register user input
 const registerUserValidator = (req, res, next) => {
@@ -19,8 +18,8 @@ const registerUserValidator = (req, res, next) => {
     return next(
       new ApiError(
         STATUS_CODES.BAD_REQUEST,
-        "First name is required",
-        "firstName"
+        "Full Name name is required",
+        "fullName"
       )
     );
 

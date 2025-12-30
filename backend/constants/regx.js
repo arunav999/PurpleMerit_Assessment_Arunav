@@ -12,4 +12,4 @@ const REGX = {
   URL: /^https?:\/\/.+/i,
 };
 
-module.exports = REGX;
+module.exports = { REGX };

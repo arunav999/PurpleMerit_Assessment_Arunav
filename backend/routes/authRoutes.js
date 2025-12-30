@@ -9,29 +9,29 @@ const { Router } = require("express");
 
 // ==================== Validators ====================
 // Validate registration and login requests
+const validateNewUser = require("../validators/registerUserValidator.js");
 
 // ==================== Controllers ====================
 // Controller functions for each auth endpoint
+const registerUser = require("../controllers/registerController.js");
 
 // Create a new router instance
 const router = Router();
 
 // ==================== Route Definitions ====================
 // Register a new user
-router.post("/register");
+router.post("/register", validateNewUser, registerUser);
 
 // Login an existing user
-router.post("/login");
+// router.post("/login");
 
 // Check if a user email-exists
-router.get("/check-email");
+// router.get("/check-email");
 
 // Get the authenticated user's profile
-router.get("/getUser", (req, res) => {
-  res.send({ success: true, message: "This route is working" });
-});
+// router.get("/getUser");
 
 // Logout the authenticated user
-router.post("/logout");
+// router.post("/logout");
 
 module.exports = router;
