@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import axiosClient from "../../../services/axiosClient";
-import { API_PATHS } from "../../../services/apiPaths";
+import axiosClient from "../../services/axiosClient";
+import { API_PATHS } from "../../services/apiPaths";
 import { toast } from "react-toastify";
-import { useAuth } from "../../../context/AuthContext";
+import { useAuth } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 export default function Dashboard() {
@@ -35,7 +35,7 @@ export default function Dashboard() {
   }, [currentUser]);
 
   const toggleStatus = async (userId, currentStatus) => {
-    const newStatus = currentStatus === "active" ? "inactive" : "active";
+    const newStatus = currentStatus === "active" ? "in-active" : "active";
     if (!window.confirm(`Are you sure you want to make this user ${newStatus}?`)) return;
 
     setUsers(users.map(u => u._id === userId ? { ...u, status: newStatus } : u));
@@ -53,8 +53,8 @@ export default function Dashboard() {
 
   // 2. Handle Logout Action
   const handleLogout = async () => {
-    await logout(); // Context clears user & calls API
-    navigate("/login"); // Force redirect just in case
+    await logout();
+    navigate("/login");
     toast.info("Logged out successfully");
   };
 

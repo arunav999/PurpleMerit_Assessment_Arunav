@@ -14,7 +14,7 @@ const API_USERS = `${API_COMMON}/users`;
 export const API_PATHS = {
   AUTH: {
     REGISTER: `${API_AUTH}/register`,
-    CHECK_EMAIL: `${API_AUTH}/check-email`,
+    // CHECK_EMAIL: `${API_AUTH}/check-email`,
     LOGIN: `${API_AUTH}/login`,
     LOGOUT: `${API_AUTH}/logout`,
   },
