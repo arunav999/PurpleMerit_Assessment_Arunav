@@ -11,7 +11,7 @@ const { REGX } = require("../constants/regx.js");
 // Middleware to validate login user input
 const loginUserValidator = (req, res, next) => {
   // Extract email and password from request body
-  const { email, password } = req.body;
+  const { email, password } = req.body || {};
 
   // Presence check: email
   if (!email)
