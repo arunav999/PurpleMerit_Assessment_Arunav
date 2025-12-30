@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axiosClient from "../../services/axiosClient";
 import { API_PATHS } from "../../services/apiPaths";
 import { toast } from "react-toastify";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 export default function Signup() {
   const [formData, setFormData] = useState({
@@ -11,6 +12,8 @@ export default function Signup() {
     password: "",
     confirmPassword: "",
   });
+  const [showPass, setShowPass] = useState(false);
+  const [showConfirm, setShowConfirm] = useState(false);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
@@ -20,8 +23,6 @@ export default function Signup() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // Client-side Validation
     if (formData.password !== formData.confirmPassword) {
       return toast.error("Passwords do not match");
     }
@@ -77,34 +78,51 @@ export default function Signup() {
                 onChange={handleChange}
               />
             </div>
+
             <div className="grid grid-cols-2 gap-4">
-              <div>
+              <div className="relative">
                 <label className="block text-sm font-medium text-gray-700">
                   Password
                 </label>
                 <input
                   name="password"
-                  type="password"
+                  type={showPass ? "text" : "password"}
                   required
-                  className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                  className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm pr-8"
                   value={formData.password}
                   onChange={handleChange}
                 />
+                <button
+                  type="button"
+                  onClick={() => setShowPass(!showPass)}
+                  className="absolute inset-y-0 right-0 top-6 flex items-center pr-2 text-gray-400 hover:text-gray-600"
+                >
+                  {showPass ? <FaEyeSlash size={14} /> : <FaEye size={14} />}
+                </button>
               </div>
-              <div>
+
+              <div className="relative">
                 <label className="block text-sm font-medium text-gray-700">
                   Confirm
                 </label>
                 <input
                   name="confirmPassword"
-                  type="password"
+                  type={showConfirm ? "text" : "password"}
                   required
-                  className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                  className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm pr-8"
                   value={formData.confirmPassword}
                   onChange={handleChange}
                 />
+                <button
+                  type="button"
+                  onClick={() => setShowConfirm(!showConfirm)}
+                  className="absolute inset-y-0 right-0 top-6 flex items-center pr-2 text-gray-400 hover:text-gray-600"
+                >
+                  {showConfirm ? <FaEyeSlash size={14} /> : <FaEye size={14} />}
+                </button>
               </div>
             </div>
+
             <p className="text-xs text-gray-500">
               Password must contain 1 Uppercase, 1 Lowercase, 1 Number, 1
               Special Char.
