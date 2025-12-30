@@ -9,8 +9,8 @@ const morgan = require("morgan");
 const cookieParser = require("cookie-parser");
 
 // ==================== Database Connection ====================
-// Connect to MongoDB using Mongoose
 const purpleMeritDB = require("./config/db.js");
+const { connectReddis } = require("./config/redisClientDB.js");
 
 // ==================== Import Routes ====================
 // Modular route imports for different features
@@ -49,6 +49,7 @@ app.use(
 
 // ==================== Connect to Database ====================
 purpleMeritDB(); // Mongo
+connectReddis(); // Redis
 
 // ==================== Global Middlewares ====================
 app.use(helmet());
