@@ -68,7 +68,7 @@ const loginUser = async (req, res, next) => {
     await user.save();
 
     // Set cookie
-    res.cookie("token", loginToken, cookieOptions("24hr"));
+    res.cookie("loginToken", loginToken, cookieOptions("24hr"));
 
     res.status(STATUS_CODES.OK).json({
       success: true,
