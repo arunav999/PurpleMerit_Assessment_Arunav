@@ -56,6 +56,8 @@ const registerUser = async (req, res, next) => {
     const signUpToken = generateToken((await newUser)._id);
     const hashedSignupToken = cryptoHash(signUpToken);
 
+    // Save in redis
+
     await redisClient.setEx(
       `session:${hashedSignupToken}`,
       60 * 60 * 24,
