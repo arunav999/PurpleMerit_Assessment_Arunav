@@ -10,10 +10,12 @@ const { Router } = require("express");
 // ==================== Validators ====================
 // Validate registration and login requests
 const validateNewUser = require("../validators/registerUserValidator.js");
+const validateUser = require("../validators/loginUserValidator.js");
 
 // ==================== Controllers ====================
 // Controller functions for each auth endpoint
-const registerUser = require("../controllers/registerController.js");
+const { registerUser } = require("../controllers/registerController.js");
+const { loginUser } = require("../controllers/loginController.js");
 
 // Create a new router instance
 const router = Router();
@@ -23,7 +25,7 @@ const router = Router();
 router.post("/register", validateNewUser, registerUser);
 
 // Login an existing user
-// router.post("/login");
+router.post("/login", validateUser, loginUser);
 
 // Check if a user email-exists
 // router.get("/check-email");

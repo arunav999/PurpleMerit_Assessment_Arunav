@@ -64,7 +64,7 @@ const registerUser = async (req, res, next) => {
 
     // Set cookie
 
-    res.cookie("signupToken", signUpToken, cookieOptions("24hr"));
+    res.cookie("token", signUpToken, cookieOptions("24hr"));
 
     res.status(STATUS_CODES.CREATED).json({
       success: true,
@@ -82,4 +82,4 @@ const registerUser = async (req, res, next) => {
   }
 };
 
-module.exports = registerUser;
+module.exports = { registerUser };
