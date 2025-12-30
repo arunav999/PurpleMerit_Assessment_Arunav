@@ -52,7 +52,7 @@ const registerUserValidator = (req, res, next) => {
     );
 
   // ===== CONTENT VALIDATION =====
-  let fullNameSanitized = fullName.trim();
+  let fullNameSanitized = fullName.trim().replace(/\s+/g, " ");
   let emailSanitized = email.trim().toLowerCase();
   let passwordSanitized = password.trim();
 
