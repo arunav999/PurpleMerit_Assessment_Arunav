@@ -24,10 +24,8 @@ const errorHandler = require("./errors/errorHandler.js");
 // ==================== Express App Setup ====================
 const app = express();
 
-// Trust proxy when in production (important for IPs, HTTPS, rate limiting, etc.)
-if (process.env.NODE_ENV === "production") {
-  app.set("trust proxy", true);
-}
+  app.set("trust proxy", 1);
+
 
 // Redirect HTTP to HTTPS — only in production
 if (process.env.NODE_ENV === "production") {

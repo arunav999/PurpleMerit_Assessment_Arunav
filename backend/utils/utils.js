@@ -28,8 +28,8 @@ const cookieOptions = (maxAge) => {
 
     return {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: true,
+      secure: true,
+      sameSite: "none",
       path: "/",
       maxAge: validity,
     };
@@ -38,8 +38,8 @@ const cookieOptions = (maxAge) => {
   //  If max age not there
   return {
     httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    sameSite: true,
+    secure: true,
+    sameSite: "none",
     path: "/",
   };
 };
