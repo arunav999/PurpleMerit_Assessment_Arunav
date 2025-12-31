@@ -60,6 +60,15 @@ app.use(express.json());
 app.use(cookieParser());
 
 // ==================== API Routes ====================
+// Health Check Route
+app.get("/", (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: "PurpleMerit API is running successfully",
+    env: process.env.NODE_ENV,
+  });
+});
+
 // Mount feature routes under /api/v1
 
 const baseRoute = "/api/v1";
