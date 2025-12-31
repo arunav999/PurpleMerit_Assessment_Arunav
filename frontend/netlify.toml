@@ -1,0 +1,15 @@
+[build]
+  # This tells Netlify to move into the frontend folder first
+  base = "frontend"
+  
+  # This is the command to build your React app
+  command = "npm run build"
+  
+  # This is the folder where Vite puts the final production code
+  publish = "dist"
+
+# This handles the "Page Not Found" error on refresh (CRITICAL for React Router)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
