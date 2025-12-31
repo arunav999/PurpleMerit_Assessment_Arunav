@@ -6,9 +6,9 @@ A full-stack authentication and user management system built with the MERN stack
 
 ## 🚀 Live Deployment
 
-- **Frontend (Vercel):** [INSERT_VERCEL_LINK_HERE]
-- **Backend (Render):** [INSERT_RENDER_LINK_HERE]
-- **API Documentation:** See Backend README
+- **Frontend (Netlify):** [purple-mint-arunav](https://purple-merit-arunav.netlify.app/) 🔗 
+- **Backend (Vercel):** [purple-mint-api-arunav](https://purple-merit-assessment-arunav-mxxy.vercel.app/) 🔗 
+- **API Documentation:** [See Backend README](https://github.com/arunav999/PurpleMerit_Assessment_Arunav/blob/main/backend/README.md) 🔗 
 
 ## 🛠️ Tech Stack
 
